@@ -1,3 +1,4 @@
 *.sqlite3
 *.pyc
 /*.pycache__pycache__/
+test.html
