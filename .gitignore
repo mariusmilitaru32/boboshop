@@ -2,3 +2,4 @@
 *.pyc
 /*.pycache__pycache__/
 test.html
+__pycache__/
