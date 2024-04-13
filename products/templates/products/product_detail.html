@@ -33,7 +33,7 @@
                     {% if reviews %}
                         <div class="review-section">
                             <small class="text-muted">
-                            <i class="fas fa-star mr-1"></i>Rating: {{ average_rating|floatformat:1 }} / 5 | ({{ review_count }} review{% if review_count != 1 %}s{% endif %})
+                            <i class="fas fa-star mr-1"></i>Rating: {{ average_rating|floatformat:2 }} / 5 | ({{ review_count }} review{% if review_count != 1 %}s{% endif %})
                             </small>
                         </div>
                         {% else %}

@@ -1,106 +1,106 @@
 [
-  {
-    "pk": 1,
-    "model": "products.category",
-    "fields": {
-      "name": "Vanilla_Cake",
-      "friendly_name": "Vanilla Cake"
-    }
-  },
-  {
-    "pk": 2,
-    "model": "products.category",
-    "fields": {
-      "name": "Chocolate_Cake",
-      "friendly_name": "Chocolate Cake"
-    }
-  },
-  {
-    "pk": 3,
-    "model": "products.category",
-    "fields": {
-      "name": "Red_Velvet_Cake",
-      "friendly_name": "Red Velvet Cake"
-    }
-  },
-  {
-    "pk": 4,
-    "model": "products.category",
-    "fields": {
-      "name": "Carrot_Cake",
-      "friendly_name": "Carrot Cake"
-    }
-  },
-  {
-    "pk": 5,
-    "model": "products.category",
-    "fields": {
-      "name": "Coconut_Cake",
-      "friendly_name": "Coconut Cake"
-    }
-  },
-  {
-    "pk": 6,
-    "model": "products.category",
-    "fields": {
-      "name": "Angel_Food_Cake",
-      "friendly_name": "Angel Food Cake"
-    }
-  },
-  {
-    "pk": 7,
-    "model": "products.category",
-    "fields": {
-      "name": "Chiffon_Cake",
-      "friendly_name": "Chiffon Cake"
-    }
-  },
-  {
-    "pk": 8,
-    "model": "products.category",
-    "fields": {
-      "name": "Génoise_Cake",
-      "friendly_name": "Génoise Cake"
-    }
-  },
-  {
-    "pk": 9,
-    "model": "products.category",
-    "fields": {
-      "name": "Victoria_Sponge_Cake",
-      "friendly_name": "Victoria Sponge Cake"
-    }
-  },
-  {
-    "pk": 10,
-    "model": "products.category",
-    "fields": {
-      "name": "New_York-Style_Cheesecake",
-      "friendly_name": "New York-Style Cheesecake"
-    }
-  },
-  {
-    "pk": 11,
-    "model": "products.category",
-    "fields": {
-      "name": "No-Bake_Cheesecake",
-      "friendly_name": "No-Bake Cheesecake"
-    }
-  },
-  {
-    "pk": 12,
-    "model": "products.category",
-    "fields": {
-      "name": "Ricotta_Cheesecake",
-      "friendly_name": "Ricotta Cheesecake"
-    }
-  },
-  {
-    "pk": 13,
-    "model": "products.category",
-    "fields": {
-      "name": "Japanese_Cotton_Cheesecake",
-      "friendly_name": "Japanese Cotton Cheesecake"
-    }
-  }
+ {
+   "pk": 1,
+   "model": "products.category",
+   "fields": {
+     "name": "vanilla",
+     "friendly_name": "Vanilla Cake"
+   }
+ },
+ {
+   "pk": 2,
+   "model": "products.category",
+   "fields": {
+     "name": "chocolate",
+     "friendly_name": "Chocolate Cake"
+   }
+ },
+ {
+   "pk": 3,
+   "model": "products.category",
+   "fields": {
+     "name": "red_velvet",
+     "friendly_name": "Red Velvet Cake"
+   }
+ },
+ {
+   "pk": 4,
+   "model": "products.category",
+   "fields": {
+     "name": "carrot",
+     "friendly_name": "Carrot Cake"
+   }
+ },
+ {
+   "pk": 5,
+   "model": "products.category",
+   "fields": {
+     "name": "coconut",
+     "friendly_name": "Coconut Cake"
+   }
+ },
+ {
+   "pk": 6,
+   "model": "products.category",
+   "fields": {
+     "name": "angel_food",
+     "friendly_name": "Angel Food Cake"
+   }
+ },
+ {
+   "pk": 7,
+   "model": "products.category",
+   "fields": {
+     "name": "chiffon",
+     "friendly_name": "Chiffon Cake"
+   }
+ },
+ {
+   "pk": 8,
+   "model": "products.category",
+   "fields": {
+     "name": "genoise",
+     "friendly_name": "Genoise Cake"
+   }
+ },
+ {
+   "pk": 9,
+   "model": "products.category",
+   "fields": {
+     "name": "victoria_sponge",
+     "friendly_name": "Victoria Sponge Cake"
+   }
+ },
+ {
+   "pk": 10,
+   "model": "products.category",
+   "fields": {
+     "name": "new_york_style",
+     "friendly_name": "New York-Style Cheesecake"
+   }
+ },
+ {
+   "pk": 11,
+   "model": "products.category",
+   "fields": {
+     "name": "no_bake",
+     "friendly_name": "No-Bake Cheesecake"
+   }
+ },
+ {
+   "pk": 12,
+   "model": "products.category",
+   "fields": {
+     "name": "ricotta",
+     "friendly_name": "Ricotta Cheesecake"
+   }
+ },
+ {
+   "pk": 13,
+   "model": "products.category",
+   "fields": {
+     "name": "japanese_cotton",
+     "friendly_name": "Japanese Cotton Cheesecake"
+   }
+ }
 ]
