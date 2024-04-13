@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "crispy_bootstrap4",
     'products',
+    'bag',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
@@ -82,6 +83,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'bag.contexts.bag_contents',
 
             ],
         },
@@ -153,6 +155,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
