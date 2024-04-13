@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 
 from django.db.models.functions import Lower
 from .models import Product, Review, Category
-from django.db.models import Avg, Count
+from django.db.models import Avg
 
 from django.db.models import Avg
 from django.contrib import messages

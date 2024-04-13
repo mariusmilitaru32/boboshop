@@ -104,6 +104,7 @@ body::before {
     background: #a44a3f !important;
 }
 
+ /* style for categories from products page */
 .border-black {
     border: 1px solid black !important;
 }
@@ -112,6 +113,23 @@ a.category-badge > span.badge:hover {
     background: #222 !important;
     color: white !important;
 }
+
+/* back to top arrow */
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
+
+
 
 
 /* -------------------------------- Media Queries */
