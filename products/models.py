@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import Avg
+from django.conf import settings
 
 
 # Create your models here.
@@ -53,3 +53,17 @@ class Review(models.Model):
         return f'{self.product.name} - {self.user.username}'
 
 
+class Favorite(models.Model):
+    """
+    Favorite model let user add a product to their favorites
+    """
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'product')
+
+    def __str__(self):
+        return f"{self.user.username}'s favorite {self.product.name}"
