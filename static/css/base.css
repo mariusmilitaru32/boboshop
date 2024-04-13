@@ -16,7 +16,7 @@ body {
 }
 
 .overlay {
-    background: #f6f4d2;
+    background: #f6f6f6;
     position: fixed;
     top: 0;
     left: 0;
@@ -36,6 +36,23 @@ body::before {
     height: 100%;
     backdrop-filter: blur(2px);
     z-index: -1;
+  }
+
+/* Review sectiono  product details */
+
+.review-section .text-muted {
+    font-size: 21px;
+    color: #a44a3f !important;
+  }
+  
+  .review-section i.fa-star {
+    color: #ffa500;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+  
+  .review-section small {
+    font-size: 14px;
   }
 
 
@@ -80,7 +97,7 @@ body::before {
 
 .text-black {
     color: #a44a3f !important;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important; */
 }
 
 .bg-black {
