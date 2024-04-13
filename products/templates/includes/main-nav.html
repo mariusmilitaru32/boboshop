@@ -5,9 +5,9 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -41,10 +41,10 @@
                 Cheesecakes
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">Japanese Cotton Cheesecake</a>
-                <a href="" class="dropdown-item">Ricotta Cheesecake</a>
-                <a href="" class="dropdown-item">Japanese Cotton Cheesecake</a>
-                <a href="" class="dropdown-item">All Cheesecakes</a>
+                <a href="{% url 'products' %}?category=japanese_cotton" class="dropdown-item">Japanese Cotton Cheesecake</a>
+                <a href="{% url 'products' %}?category=ricotta" class="dropdown-item">Ricotta Cheesecake</a>
+                <a href="{% url 'products' %}?category=no_bake" class="dropdown-item">No bake Cheesecake</a>
+                <a href="{% url 'products' %}?category=no_bake,ricotta,japanese_cotton" class="dropdown-item">All Cheesecakes</a>
             </div>
         </li>
     </ul>
