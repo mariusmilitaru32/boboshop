@@ -128,7 +128,14 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
+/* btn style for product details page */
 
+
+.btn-outline-black {
+    background: white;
+    color: #a44a3f !important;
+    border: 1px solid #a44a3f;
+}
 
 
 
