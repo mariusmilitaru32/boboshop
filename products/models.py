@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 
@@ -38,31 +38,33 @@ class Product(models.Model):
 
 
 class Review(models.Model):
-    '''
-    review model to store reviews for each product
-    '''
+    
+    ''' review model to store reviews for each product '''
+    
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     subject = models.CharField(max_length=100)
     review = models.TextField(max_length=500)
-    rating = models.IntegerField()
-    created_at = models.DateField(auto_now_add=True)
+    rating = models.IntegerField(
+        validators=[MinValueValidator(1), MaxValueValidator(5)]
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = 'Review'
         verbose_name_plural = 'Reviews'
+        ordering = ['-created_at']
 
     def __str__(self):
         return f'{self.product.name} - {self.user.username}'
 
 
 class Favorite(models.Model):
-    """
-    Favorite model let user add a product to their favorites
-    """
-
+    """ Favorite model let user add a product to their favorites """
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
 
     class Meta:
