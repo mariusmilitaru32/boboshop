@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'checkout',
 ]
 
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -86,6 +86,10 @@ TEMPLATES = [
                 'bag.contexts.bag_contents',
 
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
@@ -107,7 +111,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/"
-
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 
 
