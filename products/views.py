@@ -4,7 +4,6 @@ from django.db.models.functions import Lower
 from .models import Product, Review, Category
 from django.db.models import Avg
 
-from django.db.models import Avg
 from django.contrib import messages
 from django.db.models import Q
 

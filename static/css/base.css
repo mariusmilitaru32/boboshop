@@ -104,6 +104,16 @@ body::before {
     background: #a44a3f !important;
 }
 
+/* background for checkout button */
+.bg-black-checkout {
+    background: #cbdfbd !important;
+}
+
+.bg-warning {
+    color: black !important;
+}
+
+
  /* style for categories from products page */
 .border-black {
     border: 1px solid black !important;
@@ -157,7 +167,11 @@ a.category-badge > span.badge:hover {
     height: 2px;
 }
 
-
+.bag-notification-wrapper {
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
 
 
 
