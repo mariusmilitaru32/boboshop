@@ -3,3 +3,4 @@
 /*.pycache__pycache__/
 test.html
 __pycache__/
+.env
