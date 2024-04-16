@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'profiles',
+    'cake_tracker',
 ]
 
 
