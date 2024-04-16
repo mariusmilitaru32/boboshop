@@ -1,6 +1,6 @@
 from django import forms
 from django.core.validators import MinValueValidator
-from .models import Product, Category
+from .models import Product, Category, Review
 from .widgets import CustomClearableFileInput
 
 
@@ -34,4 +34,18 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
             
-            
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['subject', 'rating', 'review']
+        widgets = {
+            'subject': forms.TextInput(attrs={'class': 'form-control'}),
+            'rating': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 5}),
+            'review': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+        labels = {
+            'subject': 'Subject',
+            'rating': 'Rating (1-5)',
+            'review': 'Review',
+        }
