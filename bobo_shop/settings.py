@@ -34,7 +34,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://boboshop-4896cb751ade.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['boboshop-4896cb751ade.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
