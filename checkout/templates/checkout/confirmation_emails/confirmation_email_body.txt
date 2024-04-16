@@ -1,0 +1,22 @@
+Hello {{ order.full_name }}!
+
+We're thrilled to confirm your order from BoboShop. Here are the details:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+Order Total: ${{ order.order_total }}
+Delivery: ${{ order.delivery_cost }}
+Grand Total: ${{ order.grand_total }}
+
+Your order will be shipped to:
+{{ order.street_address1 }}
+{{ order.town_or_city }}, {{ order.country }}
+
+We have your phone number on file as {{ order.phone_number }}.
+
+If you have any questions, please don't hesitate to reach out to us at {{ contact_email }}.
+
+Thank you for shopping at BoboShop. We appreciate your business and look forward to delivering your order.
+
+Best regards,
+BoboShop Team
