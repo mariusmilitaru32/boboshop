@@ -16,6 +16,7 @@
 }
 
 .order-history{
-    max-height: 416;
+    max-height: 416px;
     overflow-y: auto;
 }
+
