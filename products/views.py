@@ -15,13 +15,13 @@ from .forms import ProductForm, ReviewForm
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
     
-    products = Product.objects.all().annotate(avg_rating=Avg('review__rating'))
+    products = Product.objects.all()
     query = None
     categories = None
     sort = None
     direction = None
     
-    products = Product.objects.all()
+    
 
     # Handling favorite products for authenticated users
     if request.user.is_authenticated:
@@ -36,6 +36,7 @@ def all_products(request):
     
 
     if request.GET:
+        products = Product.objects.all().annotate(avg_rating=Avg('review__rating'))
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
