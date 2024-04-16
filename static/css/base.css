@@ -219,7 +219,7 @@ a.category-badge > span.badge:hover {
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
-    background-color: #222;
+    background-color:#ffa500;
     border-color: #222;
 }
 
