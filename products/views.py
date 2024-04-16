@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 
 from django.db.models.functions import Lower
-from .models import Product, Review, Category
+from .models import Product, Review, Category, Favorite
 from django.db.models import Avg
 
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q
+from django.db.models import Q, Count
 from .forms import ProductForm, ReviewForm
 
 
@@ -14,11 +14,26 @@ from .forms import ProductForm, ReviewForm
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
+    
     products = Product.objects.all().annotate(avg_rating=Avg('review__rating'))
     query = None
     categories = None
     sort = None
     direction = None
+    
+    products = Product.objects.all()
+
+    # Handling favorite products for authenticated users
+    if request.user.is_authenticated:
+        # Annotate with favorite counts if the user is a superuser
+        if request.user.is_superuser:
+            products = products.annotate(favorites_count=Count('favorite'))
+        # Get the list of favorite product IDs for the logged-in user
+        favorite_ids = Favorite.objects.filter(
+            user=request.user).values_list('product_id', flat=True)
+    else:
+        favorite_ids = []
+    
 
     if request.GET:
         if 'sort' in request.GET:
@@ -56,6 +71,15 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
+    product_list = []
+    for product in products:
+        product.is_favorite = False
+        if request.user.is_authenticated:
+            product.is_favorite = Favorite.objects.filter(user=request.user, product=product).exists()
+        product_list.append(product)
+
+
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -63,6 +87,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'favorite_ids': favorite_ids
     }
 
     return render(request, 'products/products.html', context)
@@ -73,6 +98,19 @@ def product_detail(request, product_id):
     reviews = Review.objects.filter(product=product)
     review_count = reviews.count()
 
+    is_favorite = False  # Initialize is_favorite
+    favorites_count = 0  # Initialize favorites count
+
+    # Check user is authenticated & if product is in their favorites
+    if request.user.is_authenticated:
+        is_favorite = Favorite.objects.filter(
+            user=request.user, product=product).exists()
+
+    # Superuser specific feature: count how many users favorited this product
+    if request.user.is_superuser:
+        favorites_count = Favorite.objects.filter(product=product).count()
+    
+    
     if review_count > 0:
         average_rating = reviews.aggregate(Avg('rating'))['rating__avg']
     else:
@@ -95,6 +133,8 @@ def product_detail(request, product_id):
         'review_count': review_count,
         'average_rating': average_rating,
         'form': form,
+        'is_favorite': is_favorite,
+        'favorites_count': favorites_count
     }
     return render(request, 'products/product_detail.html', context)
 
@@ -200,3 +240,58 @@ def delete_review(request, review_id):
     review.delete()
     messages.success(request, 'Your review has been deleted.')
     return redirect('product_detail', product_id=product_id)
+
+@login_required
+def add_to_favorites(request, product_id):
+    """ Add a product to the user's favorites """
+
+    product = get_object_or_404(Product, id=product_id)
+    _, created = Favorite.objects.get_or_create(
+        user=request.user, product=product)
+    if created:
+        messages.success(
+            request, f'"{product.name}" has been added to your favorites!')
+    else:
+        messages.info(
+            request, f'"{product.name}" is already in your favorites.')
+    return redirect('product_detail', product_id=product_id)
+
+
+@login_required
+def remove_from_favorites(request, product_id):
+    """ Remove a product from the user's favorites """
+
+    product = get_object_or_404(Product, id=product_id)
+    deleted, _ = Favorite.objects.filter(
+        user=request.user, product=product).delete()
+
+    if deleted:
+        messages.success(
+            request, f'"{product.name}" has been removed from your favorites.')
+    else:
+        messages.info(
+            request, f'"{product.name}" was not found in your favorites.')
+    return redirect('product_detail', product_id=product_id)
+
+
+@login_required
+def user_favorites(request):
+    """ Display the user's favorite products """
+
+    favorites = Favorite.objects.filter(user=request.user).values_list(
+            'product', flat=True)
+    favorite_products = Product.objects.filter(id__in=favorites)
+
+    if request.user.is_superuser:
+        favorite_products = favorite_products.annotate(
+            favorites_count=Count('favorite'))
+
+    if not favorite_products.exists():
+        messages.info(request, "You haven't added any favorites yet.")
+
+    context = {
+        'products': favorite_products,
+    }
+
+    return render(request, 'products/products.html', context)
+

@@ -1,11 +1,13 @@
 from django import forms
 from django.core.validators import MinValueValidator
-from .models import Product, Category, Review
+from .models import Product, Category, Review, Favorite
 from .widgets import CustomClearableFileInput
 
 
 class ProductForm(forms.ModelForm):
-    
+    '''
+    Form for adding products
+    '''
     
     class Meta:
         model = Product
@@ -36,6 +38,10 @@ class ProductForm(forms.ModelForm):
             
 
 class ReviewForm(forms.ModelForm):
+    
+    '''
+    Form for adding reviews
+    '''
     class Meta:
         model = Review
         fields = ['subject', 'rating', 'review']
@@ -49,3 +55,12 @@ class ReviewForm(forms.ModelForm):
             'rating': 'Rating (1-5)',
             'review': 'Review',
         }
+        
+        
+class FavoriteForm(forms.ModelForm):
+    """
+    Form for managing user's favorite products.
+    """
+    class Meta:
+        model = Favorite
+        fields = ['product']
