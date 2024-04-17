@@ -63,6 +63,7 @@
 
 
                      <!-- Edit and delete buttons  -->
+                     {% if user.is_authenticated and user.is_superuser %}
                     <div class="mt-3 text-left">
                         <small class="ml-3">
                             <a href="{% url 'edit_product' product.id %}">Edit</a> |
@@ -90,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-
+                    {% endif %}
                     <!-- delete modal end -->
 
                     <p class="mt-3">{{ product.description }}</p>
