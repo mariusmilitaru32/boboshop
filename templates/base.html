@@ -21,7 +21,6 @@
                     Treat yourself or surprise your loved ones with our irresistible confections.">
         <meta property="og:image" content="{% static 'images/cake-shop-logo.jpg' %}">
         <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.ico' %}">
-{% csrf_token %}
     {% endblock %}
 
     {% block extra_meta %}
@@ -128,7 +127,7 @@
         </div>
         <div id="delivery-banner" class="row text-center">
             <div class="col bg-black text-white">
-                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
+                <h4 class="logo-font my-1 banner-text">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
             </div>            
         </div>
     </header>
