@@ -15,7 +15,8 @@ from .forms import ProductForm, ReviewForm
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
     
-    products = Product.objects.all()
+    # anotate with average rating
+    products = Product.objects.all().annotate(avg_rating=Avg('review__rating'))    
     query = None
     categories = None
     sort = None
@@ -36,7 +37,6 @@ def all_products(request):
     
 
     if request.GET:
-        products = Product.objects.all().annotate(avg_rating=Avg('review__rating'))
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
