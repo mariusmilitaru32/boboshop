@@ -168,8 +168,8 @@
                                 <p class="card-text">Message: {{ review.review }}</p>
                                 <p class="card-text"><small class="text-muted">By: {{ review.user.username }} on {{ review.created_at }}</small></p>
                                 {% if request.user == review.user %}
-                                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editReviewModal{{ review.id }}">Edit</button>
-                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteReviewModal{{ review.id }}">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-outline-black" data-toggle="modal" data-target="#editReviewModal{{ review.id }}">Edit</button>
+                                    <button type="button" class="btn btn-sm btn-black" data-toggle="modal" data-target="#deleteReviewModal{{ review.id }}">Delete</button>
                                 {% endif %}
                             </div>
                         </div>
@@ -190,8 +190,8 @@
                                             {{ form.as_p }}
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-outline-black" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-black">Save changes</button>
                                         </div>
                                     </form>
                                 </div>
@@ -224,7 +224,7 @@
                 {% endif %}
 
                 {% if request.user.is_authenticated %}
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addReviewModal">Add Review</button>
+                    <button type="button" class="btn btn-black" data-toggle="modal" data-target="#addReviewModal">Add Review</button>
                 {% endif %}
             </div>
         </div>

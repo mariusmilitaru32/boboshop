@@ -5,9 +5,23 @@
 
 <head>
     {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description"
+            content="Welcome to Delightful Cakes - your ultimate destination for heavenly desserts.
+                    Indulge in our exquisite selection of handcrafted cakes, cupcakes, and pastries,
+                    made with the finest ingredients and a passion for perfection.">
+        <meta name="author" content="BoboShop Cakes">
+        <meta name="keywords" content="cake, bakery, desserts, birthday cakes, wedding cakes">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="Delightful Cakes">
+        <meta property="og:description"
+            content="Indulge in our exquisite selection of handcrafted cakes, cupcakes, and pastries.
+                    Treat yourself or surprise your loved ones with our irresistible confections.">
+        <meta property="og:image" content="{% static 'images/cake-shop-logo.jpg' %}">
+        <link rel="icon" type="image/x-icon" href="{% static 'icons/favicon.ico' %}">
+{% csrf_token %}
     {% endblock %}
 
     {% block extra_meta %}
@@ -73,11 +87,11 @@
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                     <a href="{% url 'add_product' %}" class="dropdown-item">Add Products</a>
+                                    <a href="{% url 'sales_stats' %}" class="dropdown-item">Cake Sales</a>
+                                    <a href="{% url 'manage_orders' %}" class="dropdown-item">Order Stats</a>
                                 {% endif %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'user_favorites' %}" class="dropdown-item">My Favourite</a>
-                                <a href="{% url 'sales_stats' %}" class="dropdown-item">Cake Sales</a>
-                                <a href="{% url 'manage_orders' %}" class="dropdown-item">Order Stats</a>
+                                <a href="{% url 'user_favorites' %}" class="dropdown-item">My Favourite</a>                            
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
