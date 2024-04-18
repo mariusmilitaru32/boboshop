@@ -65,7 +65,17 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
 
     ![Mockup](documentation/features/login.png)
 
-    
+- ### User Profile
+  Enables users to access and modify their default delivery details. Also shows a list of orders placed by the user.
+    ![Mockup](documentation/features/profile.png)
 
+- ### Products view
+  This page is displaying products in a grid layout tailored to the user's device. It serves as a hub for displaying all products, along with options for filtering by category and search parameters. Additionally, users can access their favorite products through the "My Account" menu. Results on this page can be sorted using various criteria available in the "sort by" menu. Each product is tagged with ratings, categories and whether it's on whishlist for another user. For superusers, there's the added feature of displaying the total number of favorites a product has, along with links for editing and deleting products. Lastly, a "back to top" button is conveniently included below.
+  ![Mockup](documentation/features/productsview.png)
 
+- ### Product detail
+  This page offers users a detailed product description along with the information tags featured on the product page. Here, users can conveniently add or remove the product from their favorites. Additionally, there's a quantity selector input allowing users to add the item to their bag or return to the products view. For superusers, the page also showcases the total number of favorites the product has gain from users, along with links for editing and deleting the product.
+  ![Mockup](documentation/features/productdetail.png)
 
+- ### Review Section
+  
