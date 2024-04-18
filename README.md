@@ -49,11 +49,23 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
  - ### NavBar
     This navigation bar provides a user-friendly interface for navigating through various product categories on a website. It includes dropdown menus for easy access to different types of cakes, including layer cakes, sponge cakes, and cheesecakes. Users can easly access their account and see the total price of the bag content. The navigation bar is responsive, ensuring accessibility across different devices.
     ![Mockup](documentation/features/navbar.png)
- - ### Index Page
+- ### Index Page
    Index page consist of a background image with a welcome message and a button to redirect users to the cake list.
     ![Mockup](documentation/features/index.png)
 
- - ### Free Delivery banner
+- ### Free Delivery banner
     Right under the navbar, there is a section where visitors are informed about the delivery threshold.
     ![Mockup](documentation/features/deliverybanner.png)
- - ###  
+- ### Toast Messages
+    Toast messages are displayed for many different event types, including Success, Error, Info, and Warning. They serve as concise notifications that inform users about various outcomes, such as successful completion of tasks or encountering errors. Toast messages offer great functionality in enhancing user experience by promptly delivering relevant information in a non-intrusive manner. For instance, toast messages are very useful for following the shopping bag while users are adding products, ensuring they stay informed about their shopping progress.
+    ![Mockup](documentation/features/toast.png)
+- ### Sign In and Sign Up 
+    Sign in and Sign up functionalities are essential components of our cake website, providing users with personalized access to a range of features and services. Existing users can easily access their accounts by signing in, this process  grants them access to their saved preferences, order history and profile.
+    ![Mockup](documentation/features/signup.png)
+
+    ![Mockup](documentation/features/login.png)
+
+    
+
+
+
