@@ -126,3 +126,21 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
 
   View Order Details: For each order, administrators can access a range of relevant information. This may include the order number, customer details, product(s) purchased, quantities, prices, shipping information, payment status, and any other pertinent data associated with the order.
   ![Mockup](documentation/features/orderstats.png)
+
+- ### Product Management
+  The website provides user administrators with powerful control over the product catalog. Through a dedicated interface, administrators have the ability to manage products effectively, ensuring that the website offers an up-to-date and accurate selection of items.
+
+  The key capabilities of the product management feature include:
+
+  Edit Products: Administrators can modify existing product details to keep the information current and relevant. They can update product names, descriptions, prices, images, categories, and any other associated attributes.
+  ![Mockup](documentation/features/productedit.png)
+
+
+  Add New Products: When new items need to be introduced to the website, administrators can seamlessly add them to the product catalog. They can input all the necessary details, such as product name, description, price, images, and categorization. This enables the website to expand its offerings and stay competitive in the market.
+  ![Mockup](documentation/features/addproduct.png)
+
+
+  Delete Products: In cases where a product is no longer available, out of stock, or needs to be removed from the website for any reason, administrators have the power to delete it.
+  ![Mockup](documentation/features/productdelete.ong.png)
+  
+
