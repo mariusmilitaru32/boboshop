@@ -188,3 +188,116 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
     -   [DbSchema:](https://dbschema.com/) For creating the database schema logic and     diagram.
 ## Testing
   - ### For testing please refer to the [TESTING.md](/TESTING.md)
+    ## Deployment
+- ## GitHub
+  
+  - ### Cloning
+    - Go to the [GitHub repository](https://github.com/mariusmilitaru32/boboshop.git) 
+    - Locate the Code button above the list of files and click it
+    - Select if you prefer to clone using HTTPS, SSH, or GitHub CLI and click the copy button to copy the URL to your clipboard
+    - Open Git Bash or Terminal
+    - Change the current working directory to the one where you want the cloned directory
+    - In your IDE Terminal, type the following command to clone my repository: "git clone https://github.com/mariusmilitaru32/boboshop.git".
+  - ### Forking
+    By forking the GitHub Repository, we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository.
+    You can fork this repository by using the following steps:
+    
+      - Log in to GitHub and locate the [GitHub Repository](https://github.com/mariusmilitaru32/boboshop.git)
+      - At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+      - Once clicked, you should now have a copy of the original repository in your own GitHub account!
+  - ## ElephantSQL
+    1. Go to ElephantSQL.com and select “Get a managed database today”.
+    2. Choose the “TINY TURTLE” plan and click “Try now for FREE”.
+    3. Log in with your GitHub account.
+    4. Create a team with your name, agree to the Terms of Service, select Yes for GDPR, and provide your email.
+    5. With your account set up, click on “Create New Instance” to start configuring your database.
+    6. For the new database plan:
+        - Assign a Name to your plan, usually related to your project.
+        - Choose the Tiny Turtle (Free) plan.
+        - Leave the Tags section empty unless you have tags to add.
+        - Pick a data center location near you. For example, EU-West-1 (Ireland) might be a     suitable choice.
+        - Click on "Review" to verify your selections.
+    7. Confirm that the details are correct and then click “Create instance” to finalize the creation of your database.
+    8. Go back to your ElephantSQL dashboard and select the instance name relevant to your project.
+    9. In the URL section, use the copy icon to copy your database URL. Keep this URL handy as you'll need it shortly.
+
+  - ## Heroku
+
+    Deploying to Heroku
+
+    This guide walks you through the process of deploying your Django application to Heroku using a PostgreSQL database hosted on ElephantSQL.
+
+    Prerequisites:
+
+    -A Django application ready to be deployed
+
+    -A Heroku account
+
+    -A GitHub repository containing your application code
+
+    Steps
+    1. Install dependencies
+    Before deploying to Heroku, install the necessary dependencies to use Postgres on your deployed site:
+
+          ```bash
+        pip3 install dj_database_url
+        pip3 install psycopg2
+        ```
+    2. Create required files
+        Create two essential files: requirements.txt and Procfile.
+
+        Generate the requirements.txt file, which lists all the required applications and dependencies, by running:
+          ```bash
+          pip3 freeze --local > requirements.txt
+          ```
+        Create the Procfile, which tells Heroku which files run the app and how to run it, by executing:
+          ```bash
+          web: gunicorn [your app name].wsgi:application
+          ```
+        Ensure the Procfile has the Heroku logo next to it and doesn't contain any blank lines at the end. Save both files, add, commit, and push them to GitHub.
+      3. Create a new Heroku app
+
+         Sign up or log in to Heroku.com.
+         Click "New" and then "Create new app".
+         Give your app a unique name, select a region, and click "Create app".
+
+      4. Connect to GitHub repository
+
+         Connect the Heroku app to your GitHub repository by selecting GitHub in the deployment section, finding the correct repository, and clicking "Connect".
+
+      5. Set config variables
+      
+         After connecting the repository, provide Heroku with the necessary config variables in the settings tab by clicking "Reveal Config Vars". Add the environment key/value variables, some from your env.py file and some new ones:
+          | KEY | VALUE |
+          | -- | -- |
+          | AWS_ACCESS_KEY_ID | `your variable here if you have it already` |
+          | AWS_SECRET_ACCESS_KEY | `your variable here if you have it already` |
+          | DISABLE_COLLECTSTATIC | 1 -  Delete after you connect app to AWS|
+          | DATABASE_URL | `your variable here`** |
+          | EMAIL_HOST_PASS | `your variable here` |
+          | EMAIL_HOST_USER | `your variable here` |
+          | SECRET_KEY | `your variable here` |
+          | STRIPE_PUBLIC_KEY | `your variable here` |
+          | STRIPE_SECRET_KEY | `your variable here` |
+          | STRIPE_WH_SECRET | `your variable here` |
+          | USE_AWS | True |
+          | DEVELOPMENT | True - MAKE SURE YOU SET TO FALSE AFTER YOU DONE TESTING |
+
+      6. Update allowed hosts
+        Add your Heroku app's hostname to settings.py, which can be found in the Heroku settings tab under "Domains".
+         ```bash
+          ALLOWED_HOSTS = ['herokuapp', 'localhost']
+          ```
+      7. Migrate the database
+        Migrate your database to the ElephantSQL database by running the following commands in the Heroku console:
+         ```bash
+          python3 manage.py makemigrations --dry-run
+          python3 manage.py makemigrations
+          python3 manage.py migrate --plan
+          python3 manage.py migrate
+          ```
+      8. Create a superuser
+        Create a superuser by running the following command and filling in the required details:
+         ```bash
+          python3 manage.py createsuperuser    
+          ```
