@@ -143,4 +143,14 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
   Delete Products: In cases where a product is no longer available, out of stock, or needs to be removed from the website for any reason, administrators have the power to delete it.
   ![Mockup](documentation/features/productdelete.ong.png)
   
+- ## Design
+   - ### Color scheme
+    As part of designing I have used the pallete generated using [coolors.co](https://coolors.co/)
+    ![Mockup](documentation/design/palette.png)
+   - ### Typography
+    Default bootstrap4 has been used to font styling.
+   - ### Database schema
+     PostgreSQL is used as relational database using ElephantSQL as a host service
+      ![Mockup](documentation/design/dbschema.png)
 
+- ## Wireframes 
