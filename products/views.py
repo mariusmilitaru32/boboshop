@@ -14,15 +14,13 @@ from .forms import ProductForm, ReviewForm
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
-    
+
     # anotate with average rating
-    products = Product.objects.all().annotate(avg_rating=Avg('review__rating'))    
+    products = Product.objects.all().annotate(avg_rating=Avg('review__rating'))
     query = None
     categories = None
     sort = None
     direction = None
-    
-    
 
     # Handling favorite products for authenticated users
     if request.user.is_authenticated:
@@ -34,7 +32,6 @@ def all_products(request):
             user=request.user).values_list('product_id', flat=True)
     else:
         favorite_ids = []
-    
 
     if request.GET:
         if 'sort' in request.GET:
@@ -49,7 +46,6 @@ def all_products(request):
 
             if sortkey == 'category':
                 sortkey = 'category__name'
-
 
             products = products.order_by(sortkey)
 
@@ -67,19 +63,20 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
 
     product_list = []
     for product in products:
         product.is_favorite = False
         if request.user.is_authenticated:
-            product.is_favorite = Favorite.objects.filter(user=request.user, product=product).exists()
+            product.is_favorite = Favorite.objects.filter(
+                user=request.user, product=product).exists()
         product_list.append(product)
-
-
 
     current_sorting = f'{sort}_{direction}'
 
@@ -110,8 +107,7 @@ def product_detail(request, product_id):
     # Superuser specific feature: count how many users favorited this product
     if request.user.is_superuser:
         favorites_count = Favorite.objects.filter(product=product).count()
-    
-    
+
     if review_count > 0:
         average_rating = reviews.aggregate(Avg('rating'))['rating__avg']
     else:
@@ -154,16 +150,18 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to add product. Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'products/add_product.html'
     context = {
         'form': form,
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -180,7 +178,8 @@ def edit_product(request, product_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(
+                request, 'Failed to update product. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -192,6 +191,7 @@ def edit_product(request, product_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_product(request, product_id):
@@ -222,6 +222,7 @@ def add_review(request, product_id):
         form = ReviewForm()
     return render(request, 'add_review.html', {'form': form, 'product': product})
 
+
 @login_required
 def edit_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id, user=request.user)
@@ -234,6 +235,7 @@ def edit_review(request, review_id):
         form = ReviewForm(instance=review)
     return render(request, 'edit_review.html', {'form': form, 'review': review})
 
+
 @login_required
 def delete_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id, user=request.user)
@@ -241,6 +243,7 @@ def delete_review(request, review_id):
     review.delete()
     messages.success(request, 'Your review has been deleted.')
     return redirect('product_detail', product_id=product_id)
+
 
 @login_required
 def add_to_favorites(request, product_id):
@@ -280,7 +283,7 @@ def user_favorites(request):
     """ Display the user's favorite products """
 
     favorites = Favorite.objects.filter(user=request.user).values_list(
-            'product', flat=True)
+        'product', flat=True)
     favorite_products = Product.objects.filter(id__in=favorites)
 
     if request.user.is_superuser:
@@ -295,4 +298,3 @@ def user_favorites(request):
     }
 
     return render(request, 'products/products.html', context)
-

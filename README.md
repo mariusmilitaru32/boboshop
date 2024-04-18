@@ -169,3 +169,22 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
   - ## CakeSales
     [Edit Categories Desktop](documentation/design/CakeSalesDesktop.png)<br>
     [Edit Categories Mobile](documentation/design/CakeSalesMobile.png)
+
+    ## Technologies Used
+  - ### Languages Used
+    -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
+    -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+    -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+    -   [Python](https://www.python.org/)
+   
+  - ### Frameworks, Libraries and Programs Used
+    -   [Git:](https://git-scm.com/) was used for version control by utilising VSCode terminal to commit to Git and Push to GitHub.
+    -   [GitHub:](https://github.com/) was used as the repository for the project's code after being pushed from Git.
+    -   [Visual Studio Code](https://code.visualstudio.com/) was used as IDE editor.
+    -   [Balsamiq:](https://balsamiq.com/) was used to create the wireframes.
+    -   [Django:](https://www.djangoproject.com/) Micro web framework written in Python.
+    -   [ElephantSQL:](https://www.elephantsql.com/) PostgreSQL database hosting service for hosting website database.
+    -   [Bootstrap](https://getbootstrap.com/) For making the website responsive.
+    -   [DbSchema:](https://dbschema.com/) For creating the database schema logic and     diagram.
+## Testing
+  - ### For testing please refer to the [TESTING.md](/TESTING.md)
