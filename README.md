@@ -154,3 +154,18 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
       ![Mockup](documentation/design/dbschema.png)
 
 - ## Wireframes 
+  - ## Home Page <br>
+    [Home page desktop](documentation/design/IndexDesktop.png)<br>
+    [Home page mobile](documentation/design/IndexMobile.png)
+  - ## Products 
+    [Favourite Desktop](documentation/design/ProductsDesktop.png)<br>
+    [Favourite Mobile](documentation/design/ProductsMobile.png)
+  - ## Product details
+    [My Recipes Dekstop](documentation/design/ProductDetailsDesktop.png)<br>
+    [My Recipes Mobile](documentation/design/ProductDetailsMobile.png)
+  - ## Profile
+    [Categories Desktop](documentation/design/ProfileDesktop.png)<br>
+    [Categories Mobile](documentation/design/ProfileMobile.png)
+  - ## CakeSales
+    [Edit Categories Desktop](documentation/design/CakeSalesDesktop.png)<br>
+    [Edit Categories Mobile](documentation/design/CakeSalesMobile.png)
