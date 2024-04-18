@@ -351,7 +351,7 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
 
   #### Setting up AWS IAM
   1. From the **IAM dashboard** within AWS, select **User Groups**:
-      - Create new group e.g. `manage-keto-kreations`
+      - Create new group e.g. `manage-boboshop`
       - Click through without adding a policy
       - **Create Group**
 
@@ -363,13 +363,13 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
 
       ```bash
             "Resource": [
-                            "arn:aws:s3:::keto-kreations",
-                            "arn:aws:s3:::keto-kreations/*"
+                            "arn:aws:s3:::boboshop",
+                            "arn:aws:s3:::boboshop/*"
                   ]
       ```
 
       - Click **next step** and go to **Review policy**
-      - Give the policy a name e.g. `keto-kreations-policy` and description
+      - Give the policy a name e.g. `boboshop-policy` and description
       - **Create policy**
 
   3. Go back to **User Groups** and choose the group created earlier
@@ -377,7 +377,7 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
       - **Add permissions**
 
   4. Under **Users**:
-      - Choose a user name e.g. `keto-kreations-staticfiles-user`
+      - Choose a user name e.g. `boboshop-staticfiles-user`
       - Select **Programmatic access** as the **Access type**
       - Click Next
       - Add the user to the Group just created
@@ -403,3 +403,5 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
   3. Delete the `DISABLE_COLLECTSTATIC` variable from your Config Vars and deploy your Heroku app, if you have enabled automatic deployment in Heroku this will happen automatically the next push you make to GitHub
 
   4. With your S3 bucket now set up, you can create a new folder called `media` (at the same level as the newly added `static` folder) and upload any required media files to it, making sure they are publicly accessible under **Permissions**
+
+## Credits
