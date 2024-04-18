@@ -188,7 +188,7 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
     -   [DbSchema:](https://dbschema.com/) For creating the database schema logic and     diagram.
 ## Testing
   - ### For testing please refer to the [TESTING.md](/TESTING.md)
-    ## Deployment
+## Deployment
 - ## GitHub
   
   - ### Cloning
@@ -281,14 +281,14 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
           | STRIPE_SECRET_KEY | `your variable here` |
           | STRIPE_WH_SECRET | `your variable here` |
           | USE_AWS | True |
-          | DEVELOPMENT | True - MAKE SURE YOU SET TO FALSE AFTER YOU DONE TESTING |
+          | DEVELOPMENT | True - MAKE SURE YOU SET TO FALSE AFTER YOU'VE DONE TESTING |
 
-      6. Update allowed hosts
+      6. Update allowed hosts:
         Add your Heroku app's hostname to settings.py, which can be found in the Heroku settings tab under "Domains".
          ```bash
           ALLOWED_HOSTS = ['herokuapp', 'localhost']
           ```
-      7. Migrate the database
+      7. Migrate the database:
         Migrate your database to the ElephantSQL database by running the following commands in the Heroku console:
          ```bash
           python3 manage.py makemigrations --dry-run
@@ -301,3 +301,105 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
          ```bash
           python3 manage.py createsuperuser    
           ```
+    ### Amazon AWS
+
+  #### Setting up an S3 Bucket
+  1. Create an [Amazon AWS](aws.amazon.com) account
+
+  2. Search for **S3** and create a new bucket
+      - Allow public access
+      - Acknowledge
+
+  3. Under **Properties > Static** website hosting
+      - Enable
+      - `index.html` as index document
+      - Save
+
+  4. Under **Permissions > CORS** use:
+      ```bash
+          [
+        {
+            "AllowedHeaders": [
+                "Authorization"
+            ],
+            "AllowedMethods": [
+                "GET"
+            ],
+            "AllowedOrigins": [
+                "*"
+            ],
+            "ExposeHeaders": []
+        }
+      ]
+      ```
+
+  5. Under **Permissions > Bucket Policy**:
+      - Generate Bucket Policy and take note of **Bucket ARN**
+      - Chose **S3 Bucket Policy** as Type of Policy
+      - For **Principal**, enter `*`
+      - Enter **ARN** noted above
+      - **Add Statement**
+      - **Generate Policy**
+      - Copy **Policy JSON Document**
+      - Paste policy into **Edit Bucket policy** on the previous tab
+      - Save changes
+
+  6. Under **Access Control List (ACL)**:
+      - For **Everyone (public access)**, tick **List**
+      - Accept that everyone in the world may access the Bucket
+      - Save changes
+
+  #### Setting up AWS IAM
+  1. From the **IAM dashboard** within AWS, select **User Groups**:
+      - Create new group e.g. `manage-keto-kreations`
+      - Click through without adding a policy
+      - **Create Group**
+
+  2. Select **Policies**:
+      - Create policy
+      - Under **JSON** tab, click **Import managed policy**
+      - Choose **AmazongS3FullAccess**
+      - Edit the resource to include the **Bucket ARN** noted earlier when creating the Bucket Policy:
+
+      ```bash
+            "Resource": [
+                            "arn:aws:s3:::keto-kreations",
+                            "arn:aws:s3:::keto-kreations/*"
+                  ]
+      ```
+
+      - Click **next step** and go to **Review policy**
+      - Give the policy a name e.g. `keto-kreations-policy` and description
+      - **Create policy**
+
+  3. Go back to **User Groups** and choose the group created earlier
+      - Under **Permissions > Add permissions**, choose **Attach Policies** and select the one just created
+      - **Add permissions**
+
+  4. Under **Users**:
+      - Choose a user name e.g. `keto-kreations-staticfiles-user`
+      - Select **Programmatic access** as the **Access type**
+      - Click Next
+      - Add the user to the Group just created
+      - Click Next and **Create User**
+
+  5. **Download the `.csv` containing the access key and secret access key. This will NOT be available to download again**
+
+  #### Hooking Django up to S3
+
+  1. Install boto3 and django-storages
+      ```bash
+      pip3 install boto3
+      pip3 install django-storages
+      pip3 freeze > requirements.txt
+      ```
+
+  2. Add the values from the `.csv` you downloaded to your Heroku Config Vars under Settings:
+      ```bash
+      AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY
+      ```
+
+  3. Delete the `DISABLE_COLLECTSTATIC` variable from your Config Vars and deploy your Heroku app, if you have enabled automatic deployment in Heroku this will happen automatically the next push you make to GitHub
+
+  4. With your S3 bucket now set up, you can create a new folder called `media` (at the same level as the newly added `static` folder) and upload any required media files to it, making sure they are publicly accessible under **Permissions**
