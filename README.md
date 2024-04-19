@@ -405,3 +405,27 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
   4. With your S3 bucket now set up, you can create a new folder called `media` (at the same level as the newly added `static` folder) and upload any required media files to it, making sure they are publicly accessible under **Permissions**
 
 ## Credits
+- ### 
+  All images are from https://www.pexels.com/
+  
+- ###
+  General debugging for django and db deplayment issue, stripe were on https://stackoverflow.com/, https://www.djangoproject.com/
+- ###
+  cake_tracker - feature found here [project](https://github.com/Jaycode88/ecofriendlynetwork/tree/main) and adapted for my needs.
+
+## Bugs
+ - The first bug I encountered was due to add to favourite function. the function was not working properly(I was getting 500 error) when the user was adding cakes to their favourite list. After hours of debugging and stressing out I found that using django "get_or_create()" function solved my problem. Solution here: https://stackoverflow.com/questions/1941212/how-to-use-get-or-create-in-django
+
+- Second bug was related to the product sorting based on review because the review section is being generat from a related model and not from a field in the product model. 
+
+  To solve this I have to calculate the average rating for product 
+   ```bash
+    products = Product.objects.all().annotate(avg_rating=Avg('review__rating'))
+    
+   ```
+   Then I had to pass the the review to the sorting key:
+    ``` bash
+    elif sortkey == 'rating':
+                sortkey = 'avg_rating'
+                direction = 'desc'
+    ```
