@@ -13,3 +13,20 @@ Back to [README.md](/README.md)
     - [HTML results Cake stats page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Fcake_tracker%2Fstats%2F): no errors
     - [HTML results Order stats page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Fcake_tracker%2Fmanage_orders%2F): no errors
     - [HTML results Favourite page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Fproducts%2Ffavorites%2F): no errors
+
+  - ### CSS Validator
+    -base.css
+    ![Mockup](documentation/testing/basecss.png)
+
+    -checkout.css
+    ![Mockup](documentation/testing/checkoutcss.png)
+
+  - ### JsLint Validator
+    - stripe_element.js
+    ![Mockup](documentation/testing/stripeelementjs.png)
+    - Sort selector
+    ![Mockup](documentation/testing/sort%20selector.png)
+    - Country field
+    ![Mockup](documentation/testing/sort%20selector.png)
+    - Quntity input
+    ![Mockup](documentation/testing/quantityinput.png)
