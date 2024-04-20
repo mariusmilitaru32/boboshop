@@ -8,10 +8,8 @@ Back to [README.md](/README.md)
     - [HTML results Bag page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Fbag%2F): no errors
     - [HTML results Checkout](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Fcheckout%2F): no errors
     - [HTML results Register page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Faccounts%2Fsignup%2F): no errors
-    - [HTML results Login Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Faccounts%2Flogin%2F): no errors/warnings
-    - [HTML results Profile page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftimetocook-7eed92e3f20e.herokuapp.com%2Fadd_recipe): no errors/warnings
-    - [HTML results Users page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftimetocook-7eed92e3f20e.herokuapp.com%2Fusers): no errors/warnings
-    - [HTML results View Recipe page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftimetocook-7eed92e3f20e.herokuapp.com%2Fview_recipe%2F18): no errors/warnings
-    - [HTML results Add Category page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftimetocook-7eed92e3f20e.herokuapp.com%2Fadd_categories): no errors/warnings
-    - [HTML results Edit Category page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftimetocook-7eed92e3f20e.herokuapp.com%2Fedit_category%2F11): no errors/warnings
-    - [HTML results Edit Recipe page](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftimetocook-7eed92e3f20e.herokuapp.com%2Fedit_recipe%2F11): no errors/warnings
+    - [HTML results Login Page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Faccounts%2Flogin%2F): no errors
+    - [HTML results Profile page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Fprofile%2F): no errors
+    - [HTML results Cake stats page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Fcake_tracker%2Fstats%2F): no errors
+    - [HTML results Order stats page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Fcake_tracker%2Fmanage_orders%2F): no errors
+    - [HTML results Favourite page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fboboshop-4896cb751ade.herokuapp.com%2Fproducts%2Ffavorites%2F): no errors
