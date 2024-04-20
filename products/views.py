@@ -151,7 +151,7 @@ def add_product(request):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to add product. Please ensure the form is valid.')
+                request, 'Failed to add product. Please ensure the form is valid.')  # noqa
     else:
         form = ProductForm()
 
@@ -179,7 +179,7 @@ def edit_product(request, product_id):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to update product. Please ensure the form is valid.')
+                request, 'Failed to update product. Please ensure the form is valid.')  # noqa
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -220,7 +220,7 @@ def add_review(request, product_id):
             return redirect('product_detail', product_id=product.id)
     else:
         form = ReviewForm()
-    return render(request, 'add_review.html', {'form': form, 'product': product})
+    return render(request, 'add_review.html', {'form': form, 'product': product})  # noqa
 
 
 @login_required
@@ -233,7 +233,7 @@ def edit_review(request, review_id):
             return redirect('product_detail', product_id=review.product.id)
     else:
         form = ReviewForm(instance=review)
-    return render(request, 'edit_review.html', {'form': form, 'review': review})
+    return render(request, 'edit_review.html', {'form': form, 'review': review})  # noqa
 
 
 @login_required

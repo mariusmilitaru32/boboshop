@@ -30,3 +30,24 @@ Back to [README.md](/README.md)
     ![Mockup](documentation/testing/sort%20selector.png)
     - Quntity input
     ![Mockup](documentation/testing/quantityinput.png)
+- ## Browser Compatibility
+  - Testing has been carried out on the following browsers with no issues:
+    - Chrome Version 119.0.6045.124 (Official Build) (64-bit)
+    - Firefox Version 119.0.1 (64-bit)
+    - Edge Version 119.0.2151.58 (Official build) (64-bit)
+
+ - ## Python Linter by CodeInstitute
+  - ### products/views.py 
+    ![Mockup](documentation/testing/productsview.png)
+  - ### products/views.py 
+    ![Mockup](documentation/testing/productsurls.png)
+  - ### products/models.py
+    ![Mockup](documentation/testing/productsmodels.png)
+  - ### products/forms.py
+    ![Mockup](documentation/testing/productsforms.png)
+  - ### profile/views.py
+    ![Mockup](documentation/testing/profilesviews.png)
+  - ### profiles/models.py
+    ![Mockup](documentation/testing/profilesmodels.png)
+  - ### profiles/forms.py
+    ![Mockup](documentation/testing/profilesforms.png)

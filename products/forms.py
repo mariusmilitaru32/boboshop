@@ -8,25 +8,25 @@ class ProductForm(forms.ModelForm):
     '''
     Form for adding products
     '''
-    
+
     class Meta:
         model = Product
         fields = '__all__'
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-        
-        
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput)
+
     price = forms.DecimalField(
         validators=[MinValueValidator(0)],
         label='Price',
-        widget=forms.NumberInput(attrs={'class': 'border-black rounded-0', 'min': '0', 'step': '0.01'})
+        widget=forms.NumberInput(
+            attrs={'class': 'border-black rounded-0', 'min': '0', 'step': '0.01'})  # noqa
     )
     has_sizes = forms.BooleanField(
         label='Has Flavour',
         widget=forms.RadioSelect(choices=[(True, 'Yes'), (False, 'No')]),
         required=False
     )
-
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -35,10 +35,10 @@ class ProductForm(forms.ModelForm):
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
-            
+
 
 class ReviewForm(forms.ModelForm):
-    
+
     '''
     Form for adding reviews
     '''
@@ -47,7 +47,7 @@ class ReviewForm(forms.ModelForm):
         fields = ['subject', 'rating', 'review']
         widgets = {
             'subject': forms.TextInput(attrs={'class': 'form-control'}),
-            'rating': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 5}),
+            'rating': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'max': 5}),  # noqa
             'review': forms.Textarea(attrs={'class': 'form-control'}),
         }
         labels = {
@@ -55,8 +55,8 @@ class ReviewForm(forms.ModelForm):
             'rating': 'Rating (1-5)',
             'review': 'Review',
         }
-        
-        
+
+
 class FavoriteForm(forms.ModelForm):
     """
     Form for managing user's favorite products.
