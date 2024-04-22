@@ -67,4 +67,25 @@ Back to [README.md](/README.md)
     ![Mockup](documentation/testing/caketrackermodels.png)
   - ### bag/views.py
     ![Mockup](documentation/testing/bagviews.png)
+  - ### bag/contexts.py
+    ![Mockup](documentation/testing/bagcontext.png)
 
+- ## User Story Testing
+ | User Story                                                                   | Screenshot                                                |
+ | ---------------------------------------------------------------------------- | --------------------------------------------------------- |
+ | As a first time visitor, I want to see the most rated cakes.                 | ![screenshot](documentation/features/rating.png)          |
+ | As a first time visitor, I want to purchase without creating an account.     | ![screenshot](documentation/features/checkout.png)        |
+ | As a first time visitor, I want an easy and secure checkout process.         | ![screenshot](documentation/features/securecheckout.png)  |
+ | As a first time visitor, I want an order confirmation.                       | ![screenshot](documentation/features/orderemail.png)      |
+ | As a first time visitor, I want to see clear product descriptions and images | ![screenshot](documentation/features/description.png)     |
+ | As a returning visitor, I want to be able to register in to the website      | ![screenshot](documentation/features/signup.png)          |
+ | As a returning visitor, I want to be able to log in to the website.          | ![screenshot](documentation/features/login.png)           |
+ | As a returning visitor, I want to be able to favourite cakes.                | ![screenshot](documentation/features/addfavorite.png)     |
+ | As a returning visitor, I want to be able to update my profile.              | ![screenshot](documentation/features/profile.png)         |
+ | As a returning visitor, I want to be able to change my password.             | ![screenshot](documentation/features/passwordresset.png)  |
+ | As a returning visitor, I want to be able to add, edit or delete reviews for cakes.| ![screenshot](documentation/features/reviewsection.png)|
+ | As a administrator, I want to be able to add cakes.                          | ![screenshot](documentation/features/addproduct.png)      |
+ | As a administrator, I want to be able to edit cakes.                         | ![screenshot](documentation/features/productedit.png)     |
+ | As a administrator, I want to be able to delete the cakes.                   | ![screenshot](documentation/features/deletecake.png)      |
+ | As a administrator, I want to be able to see the order details.              | ![screenshot](documentation/features/orderstats.png)      |
+ | As a administrator, I want to be able to track sales.                        | ![screenshot](documentation/features/cakesales.png)       |

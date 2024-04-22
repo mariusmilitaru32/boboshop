@@ -30,18 +30,19 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
     3. As a first time visitor, I want to purchase without creating an account.
     4. As a first time visitor, I want an easy and secure checkout process.
     4. As a first time visitor, I want an order confirmation.
+    5. As a first time visitor, I want to see clear product descriptions and images.
 
   - #### B. Returning Visitor
     1. As a first time visitor, I want to be able to register on website.
     2. As a returning visitor, I want to be able to log in to the website.
     3. As a returning visitor, I want to be able to favourite cakes.
-    4. As a returning visitor, I want to be able to change my password.
+    4. As a returning visitor, I want to be able to update my profile.
     5. As a returning visitor, I want to be able to add, edit or delete reviews for cakes.
   - #### C. Administrator
     1. As an administrator, I want to be able to add cakes.
     2. As an administrator, I want to be able to edit cakes.
     2. As an administrator, I want to be able to delete the cakes.
-    2. As an administrator, I want to be able to track the cakes stats.
+    2. As an administrator, I want to be able to see the order details.
     2. As an administrator, I want to be able to track sales.
 
 
