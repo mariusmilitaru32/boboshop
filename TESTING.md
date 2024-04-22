@@ -112,3 +112,18 @@ Back to [README.md](/README.md)
 | Bag          | Desktop | ![screenshot](documentation/testing/lighthouse/bagdesktop.png)      |                                                   |
 | Checkout     | Mobile  | ![screenshot](documentation/testing/lighthouse/checkoutmobile.png)  |                                                   |
 | Checkout     | Dekstop  | ![screenshot](documentation/testing/lighthouse/checkoutdesktop.png)|                                                   |
+
+- ## Responsiveness
+  The website has been tested on different screen sizes using Google Chrome developer tool simulating devices like Iphone 14 Pro Max, Samsung S20 Ultra and Surface Pro 7 with no issues reported.
+   - #### Iphone 14 Pro Max DevTool Screenshoot
+    ![Mockup](documentation/testing/iphone14resp.png)
+    ![Mockup](documentation/testing/cakesalesresp.png)
+    
+   - #### Iphone SE for small mobile screens
+    ![Mockup](documentation/testing/iphoneseresp.png)
+    ![Mockup](documentation/testing/iphoneseproduct.png)
+   - #### Desktop
+    ![Mockup](documentation/testing/productsdesktopres.png)
+    ![Mockup](documentation/testing/orderstatsdekstop.png)
+    ![Mockup](documentation/testing/productdetailresp.png)
+    
