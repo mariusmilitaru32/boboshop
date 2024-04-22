@@ -89,3 +89,26 @@ Back to [README.md](/README.md)
  | As a administrator, I want to be able to delete the cakes.                   | ![screenshot](documentation/features/deletecake.png)      |
  | As a administrator, I want to be able to see the order details.              | ![screenshot](documentation/features/orderstats.png)      |
  | As a administrator, I want to be able to track sales.                        | ![screenshot](documentation/features/cakesales.png)       |
+
+ - ## Lighthouse test
+
+ | Page         | Device  | Screenshot                                                             | Notes                                          |
+| ------------ | ------- | ---------------------------------------------------------------------- | ---------------------------------------------- |
+| Home         | Mobile  | ![screenshot](documentation/testing/lighthouse/indexmobile.png)        |                                                |
+| Home         | Desktop | ![screenshot](documentation/testing/lighthouse/indexdesktop.png)       |                                                |
+| Favourites   | Mobile  | ![screenshot](documentation/testing/lighthouse/favouritemobile.png)    |                                                |
+| Favourites   | Desktop | ![screenshot](documentation/testing/lighthouse/favouritedesktop.png)   |                                                |
+| Products     | Mobile  | ![screenshot](documentation/testing/lighthouse/productsmobile.png)     |    68 performance due to image rendering       |
+| Products     | Desktop | ![screenshot](documentation/testing/lighthouse/productsdekstop.png)    |                                                |
+| Product details     | Mobile  | ![screenshot](documentation/testing/lighthouse/productdetailsmobile.png)|                                        |
+| Product details     | Desktop | ![screenshot](documentation/testing/lighthouse/productdetailsdesktop.png)|                                       |
+| Cake Sale    | Mobile  | ![screenshot](documentation/testing/lighthouse/cakesalesmobile.png)|                                                    |
+| Cake Sale    | Desktop | ![screenshot](documentation/testing/lighthouse/cakesalesdesktop.png)|                                                   |
+| Order Stats  | Mobile  | ![screenshot](documentation/testing/lighthouse/orderstatsmobile.png)|                                                   |
+| Order Stats  | Desktop | ![screenshot](documentation/testing/lighthouse/orderstatsdesktop.png)|                                                  |
+| Profile      | Mobile  | ![screenshot](documentation/testing/lighthouse/profilemobile.png)   |                                                   |
+| Profile      | Desktop | ![screenshot](documentation/testing/lighthouse/profiledesktop.png)  |                                                   |
+| Bag          | Mobile  | ![screenshot](documentation/testing/lighthouse/bagmobile.png)       |                                                   |
+| Bag          | Desktop | ![screenshot](documentation/testing/lighthouse/bagdesktop.png)      |                                                   |
+| Checkout     | Mobile  | ![screenshot](documentation/testing/lighthouse/checkoutmobile.png)  |                                                   |
+| Checkout     | Dekstop  | ![screenshot](documentation/testing/lighthouse/checkoutdesktop.png)|                                                   |
