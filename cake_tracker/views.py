@@ -12,6 +12,13 @@ from checkout.models import OrderLineItem, Order
 from .forms import OrderSearchForm
 
 
+'''
+Code for displaying sales statistics for products.
+Found https://github.com/Jaycode88/ecofriendlynetwork/blob/main/sales_stats/views.py
+
+'''
+
+
 @login_required
 def sales_stats(request):
     """

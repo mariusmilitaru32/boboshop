@@ -430,3 +430,6 @@ Beyond classic flavors, we also offer innovative and unique cake designs to make
                 sortkey = 'avg_rating'
                 direction = 'desc'
     ```
+
+## Acknowledgements
+  - I would like to thank [Codeinstitute](https://codeinstitute.net/) slack community for helping me during my studies and project creation.
