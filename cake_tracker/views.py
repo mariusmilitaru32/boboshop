@@ -23,42 +23,28 @@ Found https://github.com/Jaycode88/ecofriendlynetwork/blob/main/sales_stats/view
 def sales_stats(request):
     """
     Display sales statistics for products.
-
-    Args:
-        request (HttpRequest): The request object.
-
-    Returns:
-        HttpResponse: The response containing the sales statistics page.
+   
     """
     if not request.user.is_superuser:
-        messages.error(
-            request, "Access denied. Only superusers can view statistics.")
+        messages.error(request, "Access denied. Only superusers can view statistics.")
         return redirect('home')
 
     # Retrieve filter parameters from GET request
     start_date = request.GET.get('start_date')
     end_date = request.GET.get('end_date')
-    selected_product = request.GET.get('product')
-    selected_category = request.GET.get('category')
 
     # Parsing dates
     if start_date:
         start_date = parse_date(start_date)
-        start_date = timezone.make_aware(
-            datetime.combine(start_date, datetime.min.time()))
+        start_date = timezone.make_aware(datetime.combine(start_date, datetime.min.time()))
     else:
         start_date = timezone.make_aware(datetime(year=2023, month=12, day=1))
 
     if end_date:
         end_date = parse_date(end_date)
-        end_date = timezone.make_aware(
-            datetime.combine(end_date, datetime.max.time()))
+        end_date = timezone.make_aware(datetime.combine(end_date, datetime.max.time()))
     else:
         end_date = timezone.now()
-
-    # Getting all products and categories for dropdowns
-    products = Product.objects.all()
-    categories = Category.objects.all()
 
     # Base query for products
     query = Product.objects.all()
@@ -66,38 +52,25 @@ def sales_stats(request):
     # Applying date filter and calculating statistics
     query = query.annotate(
         total_sales=Coalesce(
-            Sum('orderlineitem__quantity',
-                filter=Q(
-                    orderlineitem__order__date__gte=start_date,
-                    orderlineitem__order__date__lte=end_date
-                )
-                ),
-            0
+            Sum('orderlineitem__quantity', filter=Q(
+                orderlineitem__order__date__gte=start_date,
+                orderlineitem__order__date__lte=end_date
+            )), 0
         ),
-
         total_revenue=Coalesce(
-            Sum('orderlineitem__lineitem_total',
-                filter=Q(
-                    orderlineitem__order__date__gte=start_date,
-                    orderlineitem__order__date__lte=end_date
-                )
-                ),
-            0,
-            output_field=DecimalField()
+            Sum('orderlineitem__lineitem_total', filter=Q(
+                orderlineitem__order__date__gte=start_date,
+                orderlineitem__order__date__lte=end_date
+            )), 0, output_field=DecimalField()
         ),
-
         total_favorites=Count('favorite', distinct=True)
     )
 
-    # Applying product filter if selected
-    if selected_product:
-        query = query.filter(id=selected_product)
-
-    # Applying category filter if selected
-    if selected_category:
-        query = query.filter(category_id=selected_category)
-
-    sales_and_favorites_data = query
+    sales_and_favorites_data = query.filter(
+        total_sales__gt=0,
+        total_revenue__gt=0,
+        total_favorites__gt=0
+    )
 
     # Check if the filtered query returns no results and display toast
     if not sales_and_favorites_data.exists():
@@ -105,16 +78,11 @@ def sales_stats(request):
 
     context = {
         'sales_data': sales_and_favorites_data,
-        'products': products,
-        'categories': categories,
-        'selected_product': selected_product,
-        'selected_category': selected_category,
         'start_date': start_date,
         'end_date': end_date
     }
 
     return render(request, 'cake_tracker/cake_sales.html', context)
-
 
 @login_required
 def manage_orders(request):

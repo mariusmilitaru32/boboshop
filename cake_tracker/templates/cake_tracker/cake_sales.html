@@ -3,13 +3,13 @@
 {% block page_header %}
 <!-- Header section -->
 <div class="container header-container">
-    <div class="row">
-        <div class="col text-center mt-3">
-            <!-- page title -->
-            <h2 class="logo-font">Product Statistics</h2>
-            <hr class="w-50 mb-1">
-        </div>
+  <div class="row">
+    <div class="col text-center mt-3">
+      <!-- page title -->
+      <h2 class="logo-font">Product Statistics</h2>
+      <hr class="w-50 mb-1">
     </div>
+  </div>
 </div>
 {% endblock %}
 
@@ -18,76 +18,45 @@
 <!-- Overlay: To Remove background image -->
 <div class="overlay"></div>
 <div class="container-fluid">
-    <br>
-    <div class="row">
-        <div class="col-md-10 offset-md-1">
-            <!-- Product Filter -->
-            <div class="row">
-                <div class="form-group col-md-4">
-                    <label for="product">Product:</label>
-                    <select id="product" name="product" class="form-control">
-                        <option value="">All Products</option>
-                        {% for product in products %}
-                        <option value="{{ product.id }}" {% if product.id == selected_product %} selected {% endif %}>
-                            {{ product.name }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <!-- Category Filter -->
-                <div class="form-group col-md-4">
-                    <label for="category">Category:</label>
-                    <select id="category" name="category" class="form-control">
-                        <option value="">All Categories</option>
-                        {% for category in categories %}
-                        <option value="{{ category.id }}" {% if category.id == selected_category %} selected {% endif %}>
-                            {{ category.name }}
-                        </option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-
-            <!-- Time frame and filters selection -->
-            <form method="get" action="{% url 'sales_stats' %}">
-                <!-- Date Range -->
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label for="start_date">Start Date:</label>
-                        <input type="date" id="start_date" name="start_date" value="{{ start_date|date:'Y-m-d' }}" class="form-control">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="end_date">End Date:</label>
-                        <input type="date" id="end_date" name="end_date" value="{{ end_date|date:'Y-m-d' }}" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn btn-outline-black" type="submit">Update</button>
-                    </div>
-                </div>
-            </form>
+  <br>
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <!-- Time frame and filters selection -->
+      <form method="get" action="{% url 'sales_stats' %}" class="form-inline">
+        <!-- Date Range -->
+        <div class="form-group mr-3">
+          <label for="start_date">Start Date:</label>
+          <input type="date" id="start_date" name="start_date" value="{{ start_date|date:'Y-m-d' }}" class="form-control ml-2">
         </div>
-    </div>
-    <!-- Display stats -->
-    <div class="sales-data-section">
-        <h2>Sales and Favorites Data</h2>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <tr>
-                    <th>Product Name</th>
-                    <th>Total Favorites</th>
-                    <th>Total Sales</th>
-                    <th>Total Revenue</th>
-                </tr>
-                {% for item in sales_data %}
-                <tr>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.total_favorites }}</td>
-                    <td>{{ item.total_sales }}</td>
-                    <td>{{ item.total_revenue|floatformat:2 }}</td>
-                </tr>
-                {% endfor %}
-            </table>
+        <div class="form-group mr-3">
+          <label for="end_date">End Date:</label>
+          <input type="date" id="end_date" name="end_date" value="{{ end_date|date:'Y-m-d' }}" class="form-control ml-2">
         </div>
+        <button class="btn btn-outline-black" type="submit">Update</button>
+      </form>
     </div>
+  </div>
+  <!-- Display stats -->
+  <div class="sales-data-section">
+    <h2>Sales and Favorites Data</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <tr>
+          <th>Product Name</th>
+          <th>Total Favorites</th>
+          <th>Total Sales</th>
+          <th>Total Revenue</th>
+        </tr>
+        {% for item in sales_data %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.total_favorites }}</td>
+          <td>{{ item.total_sales }}</td>
+          <td>{{ item.total_revenue|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
 </div>
 {% endblock %}
